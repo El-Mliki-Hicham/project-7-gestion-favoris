@@ -35,6 +35,7 @@ function LeagueTable() {
         {/*league  */}
          <div>
             <h2>{league.name} </h2>
+            <h2>{league.name} </h2>
             <img src={league.logo} alt="" />
         </div>
         {/* table classement */}
@@ -42,9 +43,9 @@ function LeagueTable() {
         <div id="wg-api-football-standings"
     data-host="v3.football.api-sports.io"
     // data-key="8cc7b490ea845f35b524aef59d7e1782"
-    data-league={league.name}
+    data-league='`${league.id}`'
     data-team=""
-    data-season={seasons.year}
+    data-season="2022"
     data-theme=""
     data-show-errors="false"
     data-show-logos="true"
