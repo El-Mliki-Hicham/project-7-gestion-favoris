@@ -11,7 +11,7 @@ function LeagueTable() {
 
     axios.get(URL, {
         headers: {
-        //   "X-RapidAPI-Key": "8cc7b490ea845f35b524aef59d7e1782",
+          "X-RapidAPI-Key": "8cc7b490ea845f35b524aef59d7e1782",
           "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
         }
       })
@@ -34,7 +34,7 @@ function LeagueTable() {
    <div>
         {/*league  */}
          <div>
-            <h2>{league.name} </h2>
+            {/* <h2>{league.name} </h2> */}
             <h2>{league.name} </h2>
             <img src={league.logo} alt="" />
         </div>
@@ -42,8 +42,8 @@ function LeagueTable() {
         <div>
         <div id="wg-api-football-standings"
     data-host="v3.football.api-sports.io"
-    // data-key="8cc7b490ea845f35b524aef59d7e1782"
-    data-league='`${league.id}`'
+    data-key="8cc7b490ea845f35b524aef59d7e1782"
+    data-league={league.id + ""}
     data-team=""
     data-season="2022"
     data-theme=""
