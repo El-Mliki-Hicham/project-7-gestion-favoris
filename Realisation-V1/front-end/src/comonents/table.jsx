@@ -3,21 +3,30 @@ import React, { useState, useEffect } from 'react';
 function LeagueTable() {
   const [league, setLeague] = useState([]);
   const [seasons, LastSeasons] = useState([]);
+  const [IdLeague, setIdLeague] = useState([]);
 
   useEffect(() => {
-    // const API_KEY = '8cc7b490ea845f35b524aef59d7e1782';
+  
+       
+    
+    const API_KEY = '8cc7b490ea845f35b524aef59d7e1782';
    const SelectLeague=()=>{
     const URL = `https://v3.football.api-sports.io/leagues?id=39`;
 
     axios.get(URL, {
         headers: {
-          "X-RapidAPI-Key": "8cc7b490ea845f35b524aef59d7e1782",
+          // "X-RapidAPI-Key": "8cc7b490ea845f35b524aef59d7e1782",
           "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
         }
       })
       .then(response => {
           console.log(response.data.response)
           setLeague(response.data.response[0].league);
+          var x = response.data.response[0].league.id 
+          console.log(x)
+          var xS = x.toString(response.data.response[0].league.id)
+          console.log(typeof xS);
+          setIdLeague(x);
           let dataSeasons =  response.data.response[0].seasons
            let lastSeasons =dataSeasons.pop()
           console.log(lastSeasons)
@@ -35,6 +44,7 @@ function LeagueTable() {
         {/*league  */}
          <div>
             {/* <h2>{league.name} </h2> */}
+            <h2>{league.id} </h2>
             <h2>{league.name} </h2>
             <img src={league.logo} alt="" />
         </div>
@@ -42,8 +52,8 @@ function LeagueTable() {
         <div>
         <div id="wg-api-football-standings"
     data-host="v3.football.api-sports.io"
-    data-key="8cc7b490ea845f35b524aef59d7e1782"
-    data-league={league.id + ""}
+    // data-key="8cc7b490ea845f35b524aef59d7e1782"
+    data-league={IdLeague}
     data-team=""
     data-season="2022"
     data-theme=""
