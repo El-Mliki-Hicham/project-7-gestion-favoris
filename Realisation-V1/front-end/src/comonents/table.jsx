@@ -53,7 +53,7 @@ function LeagueTable() {
         <div id="wg-api-football-standings"
     data-host="v3.football.api-sports.io"
     // data-key="8cc7b490ea845f35b524aef59d7e1782"
-    data-league={IdLeague}
+    data-league="39"
     data-team=""
     data-season="2022"
     data-theme=""
