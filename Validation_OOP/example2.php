@@ -3,76 +3,57 @@
 abstract class Person {  
  public $Nom;
  public $Prenom;
- static $compteur = 0;
- function __construct()
- {
-    self::$compteur++;
+ 
+  public function Presentation(){
+    return 'is person ';
  }
-
- static function getTotalPerson(){
-        return self::$compteur;
- }
-
-   
 }
- interface Gestion   {
+ interface IGestionPerson   {
     
      public function Ajouter($data);
      public function Supprimer($data);
-     public function afficherData();
-
 }
- class IGestion implements Gestion  {
-    private  $listData = array();
+ class GestionPerson implements IGestionPerson  {
+    public $compteur = 0;
      public function Ajouter($data)
     {
-       $_data= implode(" ", $data);
-        array_push($this->listData,$_data);
+        $this->compteur++;
     }
-
      public function Supprimer($data){
-         $_data= implode(" ", $data);
-       $arraySearch= array_search($_data,$this->listData);
-       \array_splice($this->listData,$arraySearch,1);
+        $this->compteur--;
      }
-    public function afficherData(){
-        $data =  $this->listData;
-        foreach($data as $value){
-            echo $value .'<br>';
-        }
-        echo "total Person : ". count($data);
-    }
-
-
 }
 class Formateur extends Person {
-   public function addItems($Nom ,$Prenom){
-    $this->Nom = $Nom;
-    $this->Prenom = $Prenom;
-    return [$Nom,$Prenom,"is a Formateur"];
+    public function Presentation(){
+      return 'is formateur';
+
     }  
     
 }
 class Stagiaire  extends Person {
-    public function addItems($Nom, $Prenom ){
-        $this->Nom = $Nom;
-        $this->Prenom = $Prenom;
-        return [$Nom,$Prenom,"is a stagiaire"];    
-    }  
+    public function Presentation(){
+        return 'is stagiare';
+      }    
 }
 
-$formateur = new Formateur;
-$Stagiaire = new Stagiaire;
-$Gestion = new IGestion;
-$AddFormateur =  $formateur->addItems('hicham',"mliki");
-$StagiaireAdd =  $Stagiaire->addItems('nada',"stitou");
-$StagiaireAdd2 =  $Stagiaire->addItems('bilal',"barina");
-$Gestion->Ajouter($AddFormateur);
-$Gestion->Ajouter($StagiaireAdd);
-$Gestion->Ajouter($StagiaireAdd2);
-$Gestion->Supprimer($StagiaireAdd2);
-$Gestion->afficherData();
-  echo '<br> total class Person :'.Person::getTotalPerson();
+// programme test
+$formateur = new Formateur();
+$stagiaire = new Stagiaire;
+$stagiaire->Nom= 'chami';
+$stagiaire->Prenom= 'mouad';
 
+$gestion = new GestionPerson;
 
+$gestion->Ajouter($formateur);
+$gestion->Ajouter($stagiaire);
+$gestion->Ajouter($stagiaire);
+
+echo $gestion->compteur ."<br>";//echo :
+$gestion2 = new GestionPerson;
+$gestion2->Ajouter($formateur);
+$gestion2->Ajouter($stagiaire);
+
+echo $gestion2->compteur."<br>";//output : 
+echo $formateur->Presentation() ."<br>" ;// is formateur
+echo $stagiaire->Presentation();// is stagiare
 ?>
