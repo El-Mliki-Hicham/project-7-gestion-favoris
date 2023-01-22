@@ -1,17 +1,17 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 function LeagueTable() {
   const [league, setLeague] = useState([]);
   const [seasons, LastSeasons] = useState([]);
-  const [IdLeague, setIdLeague] = useState([]);
+  const [IdLeague, setIdLeague] = useState("");
+  const [leagueid, setLeagueId] = useState(40);
 
-  useEffect(() => {
-  
-       
-    
-    const API_KEY = '8cc7b490ea845f35b524aef59d7e1782';
-   const SelectLeague=()=>{
-    const URL = `https://v3.football.api-sports.io/leagues?id=39`;
+  const inputRef =  useRef();
+const handleClick=()=>{
+    // console.log(inputRef.current.value)
+    const valueInput =  inputRef.current.value 
+      const SelectLeague=()=>{
+    const URL = `https://v3.football.api-sports.io/leagues?search=`+ valueInput; 
 
     axios.get(URL, {
         headers: {
@@ -24,36 +24,79 @@ function LeagueTable() {
           setLeague(response.data.response[0].league);
           var x = response.data.response[0].league.id 
           console.log(x)
-          var xS = x.toString(response.data.response[0].league.id)
-          console.log(typeof xS);
-          setIdLeague(x);
-          let dataSeasons =  response.data.response[0].seasons
-           let lastSeasons =dataSeasons.pop()
-          console.log(lastSeasons)
-        LastSeasons(lastSeasons);
+          setLeagueId(x);
     })
       .catch(error => {
         console.log(error);
       });
     }
     SelectLeague();
-  }, []);
+}
+const FavoriteLeague=(data)=>{
+console.log(data)
+
+axios.post('http://localhost:8000/api/addToFavorite',data)
+.then(res=>{
+  console.log("success")
+}
+)
+
+}
+
+  // useEffect(() => {
+  
+       
+    
+  //   const API_KEY = '8cc7b490ea845f35b524aef59d7e1782';
+  //  const SelectLeague=()=>{
+  //   const URL = `https://v3.football.api-sports.io/leagues?search=la liga`;
+
+  //   axios.get(URL, {
+  //       headers: {
+  //         // "X-RapidAPI-Key": "8cc7b490ea845f35b524aef59d7e1782",
+  //         "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
+  //       }
+  //     })
+  //     .then(response => {
+  //         console.log(response.data.response)
+  //         setLeague(response.data.response[0].league);
+  //         var x = response.data.response[0].league.id 
+  //         // var xS = x.toString(response.data.response[0].league.id)
+  //         console.log(x.toString())
+  //         // console.log(typeof xS);
+  //         setIdLeague(x);
+  //         let dataSeasons =  response.data.response[0].seasons
+  //          let lastSeasons =dataSeasons.pop()
+  //         // console.log(lastSeasons)
+  //       LastSeasons(lastSeasons);
+  //   })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  //   }
+  //   SelectLeague();
+  // }, []);
+  
   return (
    
    <div>
+    <input ref={inputRef} type="text" />
+    <button onClick={handleClick}>click</button>
         {/*league  */}
          <div>
             {/* <h2>{league.name} </h2> */}
+            <h2>{leagueid} </h2>
             <h2>{league.id} </h2>
             <h2>{league.name} </h2>
             <img src={league.logo} alt="" />
+            <button onClick={()=>FavoriteLeague(league)}>add</button>
         </div>
         {/* table classement */}
         <div>
         <div id="wg-api-football-standings"
     data-host="v3.football.api-sports.io"
     // data-key="8cc7b490ea845f35b524aef59d7e1782"
-    data-league="39"
+    data-league={leagueid}
     data-team=""
     data-season="2022"
     data-theme=""
@@ -61,22 +104,12 @@ function LeagueTable() {
     data-show-logos="true"
     class="wg_loader">
 </div>
-            {/* <li>{seasons.year} </li>
-            <li>{seasons.start} </li>
-            <li>{seasons.end} </li> */}
-            {/* <li>{seasons.year} </li> */}
         </div>
     </div>
   );
 }
 
 export default LeagueTable;
-// Please make sure to replace the your_api_key placeholder in the code with your actual API key from API-Football, also make sure to check the terms of use of API-Football.
-
-// Also, you should handle error cases and pagination if the API has a rate limit.
-
-// This code is just an example and you may need to modify it to suit your specific requirements and design choices. You can use this code as a starting point and build on it to make it more complex and complete.
-
 
 
 
