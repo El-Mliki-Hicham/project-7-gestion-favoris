@@ -11,6 +11,10 @@ class LeaguesController extends Controller
         $list = Leagues::all();
         return $list;
     }
+  function  League($id){
+        $list = Leagues::where("id",$id)->get();
+        return $list;
+    }
 
    function addToFavorite(Request $request){
 

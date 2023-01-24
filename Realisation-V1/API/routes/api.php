@@ -21,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('listLeague',[LeaguesController::class,'listLeague']);
+Route::get('League/{id}',[LeaguesController::class,'League']);
 Route::post('addToFavorite',[LeaguesController::class,'addToFavorite']);
