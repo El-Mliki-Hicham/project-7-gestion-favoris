@@ -1,11 +1,23 @@
+body{
+  background-size:contain;
+  background-position:top;
+  background: cover;
+  background-image: url("../public/foot.jpg" ) ;
+  
+  
+}
+
 .App {
   text-align: center;
+  /* opacity: 0.5; */
 }
 .cadre-league{
+  border: solid brown;
+    border-radius:30px;
   width: 20px;
   height: 314px;
   display: flex;
-  margin: 163px 12px 0px 12px;
+  margin:   80px 12px 0px 12px;
   flex-direction: column;
   justify-content: space-between;
 }

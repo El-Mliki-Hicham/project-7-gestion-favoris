@@ -33,10 +33,16 @@ const handleDelete = (id) =>{
 
     return(
         <div className="content">
+             {/* <!-- title --> */}
+       <div class="p-5 text-center">
+         <h1 class="mb-3">Favortite leagues</h1>
+         <h4 class="mb-3"></h4>
+       </div>
+       {/* <!-- title --> */}
             <div className="d-flex bd-highlight ">
                 {/* afficher les leagues */}
                 {league.map(league=>
-                <div className="border p-2 flex-fill bd-highlight  cadre-league">
+                <div className="  p-2 flex-fill bd-highlight  cadre-league">
                     <div className="title">
                         <h2>{league.name} </h2>
                         <img src={league.logo} alt="" />
