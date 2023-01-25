@@ -15,6 +15,9 @@ class LeaguesController extends Controller
         $list = Leagues::where("id",$id)->get();
         return $list;
     }
+  function  Delete($id){
+      Leagues::where("id",$id)->delete();
+    }
 
    function addToFavorite(Request $request){
 

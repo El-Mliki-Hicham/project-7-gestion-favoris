@@ -5,6 +5,7 @@ import LeagueTable from './comonents/table';
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Favorite from './comonents/favorite';
 import League from './comonents/league';
+import Test from './comonents/test';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route  path="/" element={<LeagueTable/>} /> 
       <Route  path="/favorite" element={<Favorite/>} /> 
       <Route  path="/League/:id" element={<League/>} /> 
+      <Route  path="/test" element={<Test/>} /> 
         
       </Routes>
      </BrowserRouter>
