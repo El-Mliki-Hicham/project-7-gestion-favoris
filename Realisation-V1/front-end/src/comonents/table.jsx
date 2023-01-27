@@ -7,6 +7,9 @@ function LeagueTable() {
   const [leagueid, setLeagueId] = useState(40);
 
   const inputRef =  useRef();
+
+
+
 const handleClick=()=>{
     // console.log(inputRef.current.value)
     const valueInput =  inputRef.current.value 
@@ -93,17 +96,16 @@ axios.post('http://localhost:8000/api/addToFavorite',data)
         </div>
         {/* table classement */}
         <div>
-        <div id="wg-api-football-standings"
-    data-host="v3.football.api-sports.io"
-    // data-key="8cc7b490ea845f35b524aef59d7e1782"
-    data-league="39"
-    data-team=""
-    data-season="2022"
-    data-theme=""
-    data-show-errors="false"
-    data-show-logos="true"
-    class="wg_loader">
-</div>
+
+<div id="wg-api-football-fixtures"
+                    data-host="v3.football.api-sports.io"
+                    data-refresh="60"
+                    data-date="2022-02-11"
+                    data-key="8cc7b490ea845f35b524aef59d7e1782"
+                    data-theme="false"
+                    data-show-errors="false"
+                    class="api_football_loader">
+        </div>
         </div>
     </div>
   );

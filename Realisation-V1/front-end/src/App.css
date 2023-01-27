@@ -12,6 +12,7 @@ body{
   /* opacity: 0.5; */
 }
 .cadre-league{
+  background-color: #ffffff91;
   border: solid brown;
     border-radius:30px;
   width: 20px;

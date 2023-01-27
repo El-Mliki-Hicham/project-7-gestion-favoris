@@ -13,10 +13,35 @@ const  League =({ leagueIdD })=>{
   const [leagueId, setleagueId] = useState([]);
          let  ParamsId  = useParams();
          useEffect(() => {
+    
+        const liveMach=()=>{
+            const URL = `https://v3.football.api-sports.io/fixtures?live=all`; 
+          
+            axios.get(URL, {
+                headers: {
+                  // "X-RapidAPI-Key": "8cc7b490ea845f35b524aef59d7e1782",
+                  "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
+                }
+              })
+              .then(response => {
+                  console.log(response.data.response)
+                  // setLeague(response.data.response[0].league);
+                  // var x = response.data.response[0].league.id 
+                  // console.log(x)
+                  // setLeagueId(x);
+            })
+              .catch(error => {
+                console.log(error);
+              });
+            }
+            liveMach()
+         
+
+
            setleagueId(ParamsId.id)
     axios.get('http://localhost:8000/api/League/'+ParamsId.id)
     .then(res=>{
-      console.log(res.data)
+      // console.log(res.data)
       setLeague(res.data);
     }
     )
@@ -40,7 +65,7 @@ return(
    <div>
    <div id="wg-api-football-standings"
   data-host="v3.football.api-sports.io"
-  data-key="8cc7b490ea845f35b524aef59d7e1782"
+  // data-key="8cc7b490ea845f35b524aef59d7e1782"
   data-league={leagueId}
          data-team=""
          data-season="2022"
