@@ -55,7 +55,7 @@ return(
         {league.map(league=>
         <div>
     {/* <h2>{league.name} </h2> */}
-    <h2>{league.id} </h2>
+    {/* <h2>{league.id} </h2> */}
     <h2>{league.name} </h2>
     <img src={league.logo} alt="" />
     </div>
@@ -63,6 +63,7 @@ return(
 </div  >
      
    <div>
+    {/* classsment league */}
    <div id="wg-api-football-standings"
   data-host="v3.football.api-sports.io"
   // data-key="8cc7b490ea845f35b524aef59d7e1782"
@@ -75,10 +76,25 @@ return(
          data-show-logos="true"
          class="wg_loader">
          </div>
-   </div><script
-    type="module"
-    src="https://widgets.api-sports.io/2.0.3/widgets.js">
-</script>
+         {/* live matches */}
+   
+         <div id="wg-api-football-games"
+     data-host="v3.football.api-sports.io"
+     data-key="8cc7b490ea845f35b524aef59d7e1782"
+     data-date=""
+     data-league={leagueId}
+     data-season=""
+     data-theme=""
+     data-refresh="15"
+     data-show-toolbar="true"
+     data-show-errors="false"
+     data-show-logos="true"
+     data-modal-game="true"
+     data-modal-standings="true"
+     data-modal-show-logos="true">
+</div>
+   
+   </div>
    
    </div>
 )

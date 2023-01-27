@@ -1,6 +1,7 @@
 // stagir kteb ismo wac kayen f solicod wla lae  accesbti hatkon 
 import logo from './logo.svg';
 import './App.css';
+import "./api-football.css"
 import LeagueTable from './comonents/table';
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Favorite from './comonents/favorite';

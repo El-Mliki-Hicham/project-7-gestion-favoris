@@ -42,7 +42,7 @@ const handleDelete = (id) =>{
             <div className="d-flex bd-highlight ">
                 {/* afficher les leagues */}
                 {league.map(league=>
-                <div className="  p-2 flex-fill bd-highlight  cadre-league">
+                <div className="p-2 flex-fill bd-highlight  cadre-league">
                     <div className="title">
                         <h2>{league.name} </h2>
                         <img src={league.logo} alt="" />
