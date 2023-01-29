@@ -15,8 +15,21 @@ class LeaguesController extends Controller
         $list = Leagues::where("id",$id)->get();
         return $list;
     }
+  function  LeagueExist($id){
+        $list = Leagues::where("id",$id)->get();
+        if(!empty($list[0])){
+            return ['message'=>"true"];
+        }else{
+            return ['message'=>"false"];
+
+        }
+        // dd($list);
+        // return $list;
+    }
   function  Delete($id){
-      Leagues::where("id",$id)->delete();
+     Leagues::where("id",$id)->delete();
+      $listAll = Leagues::all();
+      return $listAll;
     }
 
    function addToFavorite(Request $request){

@@ -28,6 +28,7 @@ const handleDelete = (id) =>{
     axios.get('http://localhost:8000/api/Delete/'+id)
     .then(res => {
         console.log("delete")
+        setLeague(res.data);
     })
 }
 

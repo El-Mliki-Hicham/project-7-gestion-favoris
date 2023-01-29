@@ -11,6 +11,17 @@ body{
   text-align: center;
   /* opacity: 0.5; */
 }
+.searsh-div{
+  margin-top: 12px;
+}
+.cadre-searsh{
+  border-radius:30px;
+  /* width: 500px; */
+  /* background-color: #ffffff91; */
+display: inline-block;
+  /* border: solid brown; */
+
+}
 .cadre-league{
   background-color: #ffffff91;
   border: solid brown;
@@ -23,8 +34,13 @@ body{
   justify-content: space-between;
 }
 .btnLink{
+  width: 176px; 
+  margin-top: 12px;
+}
+.btnFavorite{
   width: 176px;
   margin-top: 12px;
+  margin-bottom: 50px;
 }
 .btnDiv{
   display: flex;

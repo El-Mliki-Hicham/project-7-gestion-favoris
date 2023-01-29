@@ -14,27 +14,27 @@ const  League =({ leagueIdD })=>{
          let  ParamsId  = useParams();
          useEffect(() => {
     
-        const liveMach=()=>{
-            const URL = `https://v3.football.api-sports.io/fixtures?live=all`; 
+        // const liveMach=()=>{
+        //     const URL = `https://v3.football.api-sports.io/fixtures?live=all`; 
           
-            axios.get(URL, {
-                headers: {
-                  // "X-RapidAPI-Key": "8cc7b490ea845f35b524aef59d7e1782",
-                  "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
-                }
-              })
-              .then(response => {
-                  console.log(response.data.response)
-                  // setLeague(response.data.response[0].league);
-                  // var x = response.data.response[0].league.id 
-                  // console.log(x)
-                  // setLeagueId(x);
-            })
-              .catch(error => {
-                console.log(error);
-              });
-            }
-            liveMach()
+        //     axios.get(URL, {
+        //         headers: {
+        //           // "X-RapidAPI-Key": "8cc7b490ea845f35b524aef59d7e1782",
+        //           "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
+        //         }
+        //       })
+        //       .then(response => {
+        //           console.log(response.data.response)
+        //           // setLeague(response.data.response[0].league);
+        //           // var x = response.data.response[0].league.id 
+        //           // console.log(x)
+        //           // setLeagueId(x);
+        //     })
+        //       .catch(error => {
+        //         console.log(error);
+        //       });
+        //     }
+        //     liveMach()
          
 
 
@@ -62,9 +62,10 @@ return(
     )}
 </div  >
      
-   <div>
+   <div style={{    display: 'flex',
+    justifyContent:' space-between'}}>
     {/* classsment league */}
-   <div id="wg-api-football-standings"
+   <div style={{width:1000}} id="wg-api-football-standings"
   data-host="v3.football.api-sports.io"
   // data-key="8cc7b490ea845f35b524aef59d7e1782"
   data-league={leagueId}
@@ -76,21 +77,22 @@ return(
          data-show-logos="true"
          class="wg_loader">
          </div>
+
          {/* live matches */}
    
-         <div id="wg-api-football-games"
+         <div style={{width:500}} id="wg-api-football-games"
      data-host="v3.football.api-sports.io"
-     data-key="8cc7b490ea845f35b524aef59d7e1782"
+    //  data-key="8cc7b490ea845f35b524aef59d7e1782"
      data-date=""
      data-league={leagueId}
-     data-season=""
+     data-season="2022"
      data-theme=""
-     data-refresh="15"
+     data-refresh="36000"
      data-show-toolbar="true"
      data-show-errors="false"
      data-show-logos="true"
      data-modal-game="true"
-     data-modal-standings="true"
+     data-modal-standings="false"
      data-modal-show-logos="true">
 </div>
    
