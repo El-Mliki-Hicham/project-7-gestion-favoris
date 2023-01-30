@@ -67,7 +67,7 @@ return(
     {/* classsment league */}
    <div style={{width:1000}} id="wg-api-football-standings"
   data-host="v3.football.api-sports.io"
-  // data-key="8cc7b490ea845f35b524aef59d7e1782"
+  data-key="8cc7b490ea845f35b524aef59d7e1782"
   data-league={leagueId}
          data-team=""
          data-season="2022"
@@ -82,7 +82,7 @@ return(
    
          <div style={{width:500}} id="wg-api-football-games"
      data-host="v3.football.api-sports.io"
-    //  data-key="8cc7b490ea845f35b524aef59d7e1782"
+     data-key="8cc7b490ea845f35b524aef59d7e1782"
      data-date=""
      data-league={leagueId}
      data-season="2022"

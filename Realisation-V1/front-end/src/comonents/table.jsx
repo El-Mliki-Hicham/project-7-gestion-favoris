@@ -20,7 +20,7 @@ const handleClick=()=>{
 
     axios.get(URL, {
         headers: {
-          // "X-RapidAPI-Key": "8cc7b490ea845f35b524aef59d7e1782",
+          "X-RapidAPI-Key": "8cc7b490ea845f35b524aef59d7e1782",
           "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com"
         }
       })
@@ -111,7 +111,7 @@ return (
   {/* table classement */}
   <div>
 
-    <div id="wg-api-football-games" data-host="v3.football.api-sports.io" // data-key="8cc7b490ea845f35b524aef59d7e1782"
+    <div id="wg-api-football-games" data-host="v3.football.api-sports.io"  data-key="8cc7b490ea845f35b524aef59d7e1782"
       data-date="" data-league="" data-season="" data-theme="" data-refresh="15" data-show-toolbar="true"
       data-show-errors="false" data-show-logos="true" data-modal-game="true" data-modal-standings="true"
       data-modal-show-logos="true">
